@@ -13,7 +13,7 @@
                 <div class="panel-title">
                   <% css_class = (@taxon && @taxon.self_and_ancestors.include?(taxon)) ? 'active' : '' %>
                   <% if taxon.children.present? %>
-                    <%= link_to "#taxon_#{taxon.id}", class: css_class, "data-toggle": "collapse" do %>
+                    <%= link_to "#taxon_#{taxon.id}", class: css_class, :"data-toggle" => "collapse" do %>
                       <span class="badge pull-right"><i class="fa fa-plus"></i></span>
                       <%= taxon.name %>
                     <% end %>
