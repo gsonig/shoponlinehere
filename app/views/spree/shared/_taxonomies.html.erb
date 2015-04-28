@@ -1,0 +1,42 @@
+<% max_level = Spree::Config[:max_level_in_taxons_menu] || 1 %>
+
+<nav id="taxonomies" class="sidebar-item" data-hook>
+  <% @taxonomies.each do |taxonomy| %>
+    <% cache [I18n.locale, taxonomy, max_level] do %>
+      <h4 class='taxonomy-root'><%= Spree.t(:shop_by_taxonomy, :taxonomy => taxonomy.name) %></h4>
+      <% root_taxon = taxonomy.root %>
+      <% unless max_level < 1 || root_taxon.leaf? %>
+        <div class="panel-group category-products">
+          <% root_taxon.children.map do |taxon| %>
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <div class="panel-title">
+                  <% css_class = (@taxon && @taxon.self_and_ancestors.include?(taxon)) ? 'active' : '' %>
+                  <% if taxon.children.present? %>
+                    <%= link_to "#taxon_#{taxon.id}", class: css_class, "data-toggle": "collapse" do %>
+                      <span class="badge pull-right"><i class="fa fa-plus"></i></span>
+                      <%= taxon.name %>
+                    <% end %>
+                  <% else %>
+                    <%= link_to taxon.name, seo_url(taxon), class: css_class %>
+                  <% end %>
+                </div>
+              </div>
+              <% if taxon.children.present? %>
+                <div id="taxon_<%=taxon.id%>" class="panel-collapse collapse">
+                  <div class="panel-body">
+                    <ul>
+                      <% taxon.children.each do |child| %>
+                        <li><%= link_to child.name, seo_url(child) %></li>
+                      <% end %>
+                    </ul>
+                  </div>
+                </div>
+              <% end %>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+    <% end %>
+  <% end %>
+</nav>
