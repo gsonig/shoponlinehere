@@ -2532,3 +2532,24 @@ h2.title {
 .list-group-item {
   border: none;
 }
+
+#taxonomies .taxonomy-root {
+  color: #fe980f;
+}
+
+#taxonomies .list-group-item {
+  padding: 0;
+}
+
+.list-group-item.active,
+.list-group-item.active:hover,
+.list-group-item.active:focus {
+  background: none;
+  color: #555;
+  text-decoration: underline;
+}
+
+.panel-default > .panel-heading .badge {
+  color: #555;
+  background: none;
+}
