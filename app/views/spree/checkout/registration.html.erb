@@ -1,0 +1,27 @@
+<section id="form">  
+  <%= render :partial => 'spree/shared/error_messages', :locals => { :target => @user } %>
+  <div id="registration" class="row" data-hook>
+    <div id="account">
+      <%= render :partial => 'new_user' %>
+    </div>
+    <% if Spree::Config[:allow_guest_checkout] %>
+      <div class="col-sm-1">
+        <h2 class="or">OR</h2>
+      </div>
+      <div class="col-sm-4">
+        <div class="login-form">
+          <h2 class="panel-title"><%= Spree.t(:guest_user_account) %></h2>
+          <div id="guest_checkout" data-hook>
+            <% if flash[:registration_error] %>
+              <div class='flash error'><%= flash[:registration_error] %></div>
+            <% end %>
+            <%= form_for @order, :url => update_checkout_registration_path, :method => :put, :html => { :id => 'checkout_form_registration' } do |f| %>
+              <%= f.email_field :email, :class => 'form-control title', :placeholder => Spree.t(:email) %>
+              <%= f.submit Spree.t(:continue), :class => 'btn btn-success btn-checkout' %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</section>

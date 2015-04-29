@@ -2557,6 +2557,7 @@ h2.title {
 .btn.btn-success {
   background-color: #fe980f;
   border-color: #fe980f;
+  color: #fff;
 }
 
 .middle-tabs {
@@ -2569,4 +2570,10 @@ h2.title {
 
 #product-thumbnails .thumbnail {
   height: 75px;
+}
+
+.btn.btn-success.btn-checkout {
+  width: 27%;
+  height: 32px;
+  border-radius: 0;
 }
