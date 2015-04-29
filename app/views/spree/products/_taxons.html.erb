@@ -1,0 +1,29 @@
+<% if !@product.taxons.blank? %>
+  <% similar_products = @product.taxons.map {|t| t.products}.flatten %>
+  <div id="taxon-crumbs" data-hook class=" five ">
+    <div id="similar-product" class="carousel slide" data-ride="carousel">
+      <div class="carousel-inner">
+        <% similar_products.each_slice(3) do |slice| %>
+          <div class="item">
+            <% slice.each do |p| %>
+              <%= link_to(image_tag(p.images.first.attachment.url(:mini), class: "thumbnail"), spree.product_url(p)) %>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+      <!-- Controls -->
+      <a class="left item-control" href="#similar-product" data-slide="prev">
+        <i class="fa fa-angle-left"></i>
+      </a>
+      <a class="right item-control" href="#similar-product" data-slide="next">
+        <i class="fa fa-angle-right"></i>
+      </a>
+    </div>
+  </div>
+<% end %>
+
+<script>
+  $(document).ready(function(){
+    $('#similar-product').find('.item:first').addClass('active');
+  });
+</script>
