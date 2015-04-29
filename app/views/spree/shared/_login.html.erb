@@ -1,18 +1,21 @@
-<%= form_for Spree::User.new, :as => :spree_user, :url => spree.create_new_session_path do |f| %>
-  <div id="password-credentials">
-    <p>
-      <%= f.label :email, Spree.t(:email) %><br />
-      <%= f.email_field :email, :class => 'form-control', :tabindex => 1, autofocus: true %>
-    </p>
-    <p>
-      <%= f.label :password, Spree.t(:password) %><br />
-      <%= f.password_field :password, :class => 'form-control', :tabindex => 2 %>
-    </p>
+<section id="form">
+  <div class="login-form">
+    <h2><%= Spree.t(:login_as_existing) %></h2>
+    <%= form_for Spree::User.new, :as => :spree_user, :url => spree.create_new_session_path do |f| %>
+      <div id="password-credentials">
+        <%= f.email_field :email, :class => 'form-control', :tabindex => 1, autofocus: true, :placeholder => Spree.t(:email) %>
+        <%= f.password_field :password, :class => 'form-control', :tabindex => 2, :placeholder => Spree.t(:password) %>
+        <span>
+          <%= f.check_box :remember_me, :tabindex => 3 %>
+          <%= f.label :remember_me, Spree.t(:remember_me) %>
+        </span>
+        <br><br>
+        <%= f.submit Spree.t(:login), :class => 'btn btn-success btn-checkout', :tabindex => 4 %>
+        
+        <%= Spree.t(:or) %> 
+        <%= link_to Spree.t(:create_a_new_account), spree.signup_path %> |
+        <%= link_to Spree.t(:forgot_password), spree.recover_password_path %>
+     </div>
+    <% end %>
   </div>
-  <p>
-    <%= f.check_box :remember_me, :tabindex => 3 %>
-    <%= f.label :remember_me, Spree.t(:remember_me) %>
-  </p>
-
-  <p><%= f.submit Spree.t(:login), :class => 'btn btn-lg btn-success btn-block', :tabindex => 4 %></p>
-<% end %>
+</section>

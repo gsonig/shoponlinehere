@@ -2573,7 +2573,7 @@ h2.title {
 }
 
 .btn.btn-success.btn-checkout {
-  width: 27%;
+  width: 100px;
   height: 32px;
   border-radius: 0;
 }
