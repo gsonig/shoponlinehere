@@ -721,7 +721,7 @@ h2.title:before{
   padding: 5px 20px;
 }
 
-.category-products .panel-default .panel-heading .panel-title a {
+.panel-heading .panel-title a, .navigation .nowrap {
   color: #696763;
   font-family: 'Roboto', sans-serif;
   font-size: 14px;
@@ -1448,7 +1448,7 @@ h2.title {
 }
 
 
-.login-form form input, .signup-form form input {
+.login-form form input:not[type='radio'], .signup-form form input:not[type='radio'], .form-select {
   background: #F0F0E9;
   border: medium none;
   color: #696763;
@@ -2532,7 +2532,7 @@ h2.title {
   border: none;
 }
 
-#taxonomies .taxonomy-root {
+#taxonomies .taxonomy-root, .filter-title {
   color: #fe980f;
 }
 
@@ -2580,4 +2580,20 @@ h2.title {
 .field_with_errors .form-control {
   height: 40px;
   width: 100%;
+}
+
+.progress-steps { margin: 20px 0 20px; }
+
+.page-heading { color: #696763; }
+
+.customer-email { margin-bottom: 40px; }
+
+.panel-heading.checkout-form-heading {
+  background-color: #fe980f;
+  color: #fff;
+}
+
+.amount-primary {
+  color: #fe980f;
+  font-weight: 700;
 }
