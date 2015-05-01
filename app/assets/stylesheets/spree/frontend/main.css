@@ -1555,7 +1555,7 @@ h2.title {
 }
 
 .breadcrumbs .breadcrumb li.active a {
-  
+
 }
 
 .breadcrumbs .breadcrumb > li + li:before {
@@ -2601,3 +2601,13 @@ h2.title {
   color: #fe980f;
   font-weight: 700;
 }
+
+#imagelightbox {
+  /*position: fixed;*/
+  z-index: 9999;
+
+  -ms-touch-action: none;
+  touch-action: none;
+}
+
+.secondary { display: none; }

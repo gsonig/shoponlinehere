@@ -9,9 +9,8 @@
     <div class="col-md-5" data-hook="product_left_part">
       <div class="view-product" data-hook="product_left_part_wrap">
         <div id="product-images" data-hook="product_images">
-          <%= render :partial => 'image' %>
+          <%= render :partial => 'image', locals: {images: @product.images} %>
         </div>
-        <h3>ZOOM</h3> 
         <div data-hook="promotions">
           <%= render :partial => 'promotions' %>
         </div>
@@ -59,5 +58,6 @@
     e.preventDefault();
     var link = $(this).find('img').attr('src');
     $('#product-images img').attr('src', link);
-  }); 
+    $('#product-images a').attr('href', link);
+  });
 </script>

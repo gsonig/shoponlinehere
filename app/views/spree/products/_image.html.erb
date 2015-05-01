@@ -1,0 +1,18 @@
+<div id='gallery'>
+  <% if defined?(images) && images %>
+    <% images.each_with_index do |image, index| %>
+      <% klass = (index == 0) ? '' : 'secondary' %>
+      <%= link_to image.attachment.url(:product), class: klass do %>
+        <%= image_tag image.attachment.url(:product) %>
+      <% end %>
+    <% end %>
+  <% else %>
+    <%= product_image(@product, :itemprop => "image") %>
+  <% end %>
+</div>
+
+<script>
+  $('#gallery').photobox('a');
+  // or with a fancier selector and some settings, and a callback:
+  $('#gallery').photobox('a:first', { thumbs:false, time:0 }, imageLoaded);
+</script>
