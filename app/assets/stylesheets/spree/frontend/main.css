@@ -2611,3 +2611,9 @@ h2.title {
 }
 
 .secondary { display: none; }
+
+input[type='radio'], input[type='checkbox'] {
+  width: auto !important;
+}
+
+.existing-cc-radio { height: auto !important; }
