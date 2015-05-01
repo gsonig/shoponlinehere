@@ -1448,7 +1448,7 @@ h2.title {
 }
 
 
-.login-form form input:not[type='radio'], .signup-form form input:not[type='radio'], .form-select {
+.login-form form input, .signup-form form input, .form-select {
   background: #F0F0E9;
   border: medium none;
   color: #696763;
