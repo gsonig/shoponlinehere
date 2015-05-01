@@ -1539,6 +1539,7 @@ h2.title {
   background:#FE980F;
   color: #FFFFFF;
   padding: 3px 7px;
+  position: relative;
 }
 
 .breadcrumbs .breadcrumb li a:after {
@@ -1549,9 +1550,12 @@ h2.title {
   border-style: solid;
   border-color:transparent transparent transparent #FE980F;
   position: absolute;
-  top: 11px;
-  left:48px;
+  top: 4px;
+  left: 100%;
+}
 
+.breadcrumbs .breadcrumb li.active a {
+  
 }
 
 .breadcrumbs .breadcrumb > li + li:before {
