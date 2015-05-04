@@ -9,6 +9,13 @@
   <% else %>
     <%= product_image(@product, :itemprop => "image") %>
   <% end %>
+    <% if @product.has_variants? %>
+      <% @product.variant_images.each do |image| %>
+        <%= link_to image.attachment.url(:product), class: 'secondary' do %>
+          <%= image_tag image.attachment.url(:product) %>
+        <% end %>
+      <% end %>
+    <% end %>
 </div>
 
 <script>
