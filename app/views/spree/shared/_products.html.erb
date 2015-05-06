@@ -25,15 +25,32 @@
   <div id="products" class="row" data-hook>
     <% products.each do |product| %>
       <% url = spree.product_url(product, taxon_id: @taxon.try(:id)) %>
-      <div id="product_<%= product.id %>" class="col-md-3 col-sm-6 product-list-item" data-hook="products_list_item" itemscope itemtype="http://schema.org/Product">
+      <div id="product_<%= product.id %>" class="col-md-4 col-sm-6 product-list-item" data-hook="products_list_item" itemscope itemtype="http://schema.org/Product">
         <div class="product-image-wrapper">
           <% cache(@taxon.present? ? [I18n.locale, current_currency, @taxon, product] : [I18n.locale, current_currency, product]) do %>
             <div class="single-products">
               <div class="productinfo text-center">
-                <%= link_to small_image(product, itemprop: "image"), url, itemprop: 'url' %>
+                <div style="height: 150px; width: 150px; display: inline-block;">
+                  <%= link_to small_image(product, itemprop: "image"), url, itemprop: 'url' %>
+                </div>
                 <h2><%= display_price(product) %></h2>
-                <%= link_to truncate(product.name, length: 50), url, class: 'info', itemprop: "name", title: product.name %>
+                <p><%= link_to truncate(product.name, length: 50), url, class: 'info', itemprop: "name", title: product.name %></p>
+                <%= link_to (url), class: 'btn btn-default add-to-cart', itemprop: "name", title: product.name do %>
+                    <i class="fa fa-shopping-cart"></i>View Product
+                  <% end %>
               </div>
+              
+              <div class="product-overlay">
+                <div class="overlay-content">
+                  <h2><%= display_price(product) %></h2>
+                  <p><%= truncate(product.name, length: 50) %></p>
+                  <%= link_to (url), class: 'btn btn-default add-to-cart', itemprop: "name", title: product.name do %>
+                    <i class="fa fa-shopping-cart"></i>View Product
+                  <% end %>
+                </div>
+              </div>
+              
+              
             </div>
           <% end %>
         </div>

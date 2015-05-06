@@ -9,8 +9,8 @@
 
 <div class="header-bottom"><!--header-bottom-->
   <div class="container">
-    <div class="row">
-      <div class="col-sm-6">
+    <div class="row", style="margin: 0;">
+      <div class="col-sm-6" style="padding: 0px;">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
             <span class="sr-only">Toggle navigation</span>
@@ -20,8 +20,8 @@
           </button>
         </div>
         <div class="mainmenu pull-left">
-          <ul class="nav navbar-nav collapse navbar-collapse">
-            <li><%= link_to Spree.t(:home), spree.root_path %></li>
+          <ul class="nav navbar-nav collapse navbar-collapse" style="padding-left: 15px;">
+            <li style="padding-left: 15px;"><%= link_to Spree.t(:home), spree.root_path %></li>
           </ul>
         </div>
       </div>
