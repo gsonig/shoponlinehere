@@ -18,3 +18,5 @@
 #product-details .view-product img {height: 100%;}
 
 #product-details .product-information #quantity {margin-bottom: 10px;}
+
+table#cart-detail {margin-bottom: 0;}
