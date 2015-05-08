@@ -1,14 +1,39 @@
 <div class="header-middle"><!--header-middle-->
   <div class="container">
     <div class="row">
-      <div class="col-sm-4" id="logo">
-        
-          <%= logo %>
+      <div class="col-sm-4">
+        <div class="logo pull-left">
+          <a href="/"><%=image_tag"logo.png" %></a>
+        </div>
+        <div class="btn-group pull-right">
+          <div class="btn-group">
+            <button data-toggle="dropdown" class="btn btn-default dropdown-toggle usa" type="button">
+              USA
+              <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu">
+              <li><a href="">Canada</a></li>
+              <li><a href="">UK</a></li>
+            </ul>
+          </div>
           
+          <div class="btn-group">
+            <button data-toggle="dropdown" class="btn btn-default dropdown-toggle usa" type="button">
+              DOLLAR
+              <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu">
+              <li><a href="">Canadian Dollar</a></li>
+              <li><a href="">Pound</a></li>
+            </ul>
+          </div>
+        </div>
       </div>
       <div class="col-sm-8">
         <div class="shop-menu pull-right">
           <ul class="nav navbar-nav">
+            <li><a href="#"><i class="fa fa-star"></i> Wishlist</a></li>
+            <li><a class="active" href="#"><i class="fa fa-crosshairs"></i> Checkout</a></li>
             <li id="link-to-cart" data-hook>
               <noscript>
                 <%= link_to Spree.t(:cart), '/cart' %>
@@ -22,4 +47,4 @@
       </div>
     </div>
   </div>
-</div><!--/header-middle-->
+</div>

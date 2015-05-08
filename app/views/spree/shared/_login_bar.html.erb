@@ -1,0 +1,15 @@
+<% if spree_current_user %>
+  <li>
+    <%= link_to (spree.account_path) do %>
+      <i class="fa fa-user"></i> <%= Spree.t(:my_account) %>
+    <% end %>
+  </li>
+  <li></li>
+  <li><%= link_to Spree.t(:logout), spree.logout_path %></li>
+<% else %>
+  <li id="link-to-login">
+    <%= link_to (spree.login_path) do %>
+      <i class="fa fa-lock"></i> <%= Spree.t(:login) %>
+    <% end %>
+  </li>
+<% end %>
