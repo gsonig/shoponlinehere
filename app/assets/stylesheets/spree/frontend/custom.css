@@ -12,3 +12,9 @@
 }
 
 .nopadding {padding: 0;}
+
+#breadcrumbs ol.breadcrumb {margin-bottom: 0;}
+
+#product-details .view-product img {height: 100%;}
+
+#product-details .product-information #quantity {margin-bottom: 10px;}
