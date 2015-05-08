@@ -1,0 +1,14 @@
+#product-details #taxon-crumbs .carousel-inner .item {text-align: center;}
+#product-details #taxon-crumbs .carousel-inner .item a img {
+  margin: 5px !important;
+  width: 25% !important;
+}
+
+#breadcrumbs ol.breadcrumb li:first-child {
+  margin-left: 13px;
+}
+#breadcrumbs ol.breadcrumb li {
+  margin-bottom: 10px;
+}
+
+.nopadding {padding: 0;}
